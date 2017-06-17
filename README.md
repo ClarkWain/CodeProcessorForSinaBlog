@@ -1,0 +1,2 @@
+# CodeProcessorForSinaBlog
+新浪博客代码编辑工具。新浪博客没有像CSDN那样的代码编辑，从Android Studio复制粘贴又会有格式错乱的问题。该工具就是用于解决这个代码错乱的问题。
