@@ -1,9 +1,5 @@
 package cn.bassy.tools;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.Scanner;
 
 import cn.bassy.tools.processor.IProcessor;
@@ -17,11 +13,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Scanner scanner = new Scanner( System.in );
+		
 		while (true) {
 
 			showReadMe();
 
-			int cmd = getCommand();
+			int cmd = getCommand(scanner);
 
 			IProcessor processor = null;
 			switch (cmd) {
@@ -68,24 +66,16 @@ public class Main {
 	/**
 	 * 获取用户输入的命令
 	 */
-	private static int getCommand() {
+	private static int getCommand(Scanner scanner) {
 		byte[] input = new byte[10];
 		int cmd = 0;
 
 		try {
 			System.out.println("请输入指令：");
-			Scanner scanner = new Scanner( System.in );
 			cmd = scanner.nextInt();
-			scanner.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(new String(input) + "指令错误，请重新输入！");
-			try {
-				System.in.reset();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 		}
 		return cmd;
 	}

@@ -20,7 +20,10 @@ public class XmlCodeProcessor implements IProcessor {
 
 	@Override
 	public String startElement(String tag) {
-		return replaceFont(addPadding(tag));
+		if(isFirstPreTag){
+			tag = addPadding(tag);
+		}
+		return replaceFont(tag);
 	}
 
 	@Override
@@ -28,7 +31,7 @@ public class XmlCodeProcessor implements IProcessor {
 		String newText;
 
 		newText = replacePrefixSpace(text);
-		newText = replaceComments(newText);
+		newText = replaceChars(newText);
 
 		return newText;
 	}
@@ -43,7 +46,8 @@ public class XmlCodeProcessor implements IProcessor {
 
 	/** 增加内边距 */
 	private String addPadding(String tag) {
-		if (tag.contains("<pre style=\"") && isFirstPreTag) {
+		if (isFirstPreTag && tag.contains("<pre style=\"")) {
+			isFirstPreTag = true;
 			return tag.replace("<pre style=\"", "<pre style=\"padding:5px 5px 5px 10px;");
 		} else {
 			return tag;
@@ -94,7 +98,7 @@ public class XmlCodeProcessor implements IProcessor {
 	 * @param text
 	 * @return
 	 */
-	private String replaceComments(String text) {
-		return text.replace("/**", "<b>/</b>**");
+	private String replaceChars(String text) {
+		return text.replace("<", "<b><</b>");
 	}
 }

@@ -45,7 +45,7 @@ public class MyXMLHandler extends DefaultHandler {
 		String text = new String(ch, start, length);
 		text = processor.processText(text);
 		result.append(text);
-		Log.i("characters处理结果：text = %s", text);
+		Log.i("characters处理结果：%s", result.toString());
 	}
 
 	@Override

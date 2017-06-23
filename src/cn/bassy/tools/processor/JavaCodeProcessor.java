@@ -20,7 +20,10 @@ public class JavaCodeProcessor implements IProcessor {
 
 	@Override
 	public String startElement(String tag) {
-		return replaceFont(addPadding(tag));
+		if(isFirstPreTag){
+			tag = addPadding(tag);
+		}
+		return replaceFont(tag);
 	}
 
 	@Override
@@ -43,7 +46,8 @@ public class JavaCodeProcessor implements IProcessor {
 
 	/** 增加内边距 */
 	private String addPadding(String tag) {
-		if (tag.contains("<pre style=\"") && isFirstPreTag) {
+		if (tag.contains("<pre style=\"")) {
+			isFirstPreTag = false;
 			return tag.replace("<pre style=\"", "<pre style=\"padding:5px 5px 5px 10px;");
 		} else {
 			return tag;
