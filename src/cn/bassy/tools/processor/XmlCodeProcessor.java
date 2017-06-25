@@ -99,6 +99,6 @@ public class XmlCodeProcessor implements IProcessor {
 	 * @return
 	 */
 	private String replaceChars(String text) {
-		return text.replace("<", "&#60;");//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
+		return text.replace("<", "&amp;lt;");//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
 	}
 }
