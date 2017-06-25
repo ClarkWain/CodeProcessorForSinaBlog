@@ -99,6 +99,7 @@ public class JavaCodeProcessor implements IProcessor {
 	 * @return
 	 */
 	private String replaceComments(String text) {
-		return text.replace("/**", "<b>/</b>**");
+		return text.replace("/**", "<b>/</b>**")
+				.replace("<", "&#60;");//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
 	}
 }

@@ -6,6 +6,7 @@ import cn.bassy.tools.processor.IProcessor;
 import cn.bassy.tools.processor.JavaCodeProcessor;
 import cn.bassy.tools.processor.XmlCodeProcessor;
 import cn.bassy.tools.utils.ClipboardHelper;
+import cn.bassy.tools.utils.Log;
 import cn.bassy.tools.xml.OnResultListener;
 import cn.bassy.tools.xml.XMLHelper;
 
@@ -14,10 +15,11 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner( System.in );
+		Log.setDebug(false);
 		
 		while (true) {
 
-			showReadMe();
+			showDescription();
 
 			int cmd = getCommand(scanner);
 
@@ -47,7 +49,7 @@ public class Main {
 	/**
 	 * 显示使用帮助
 	 */
-	private static void showReadMe() {
+	private static void showDescription() {
 		System.out.println("---------------------------------------------");
 		System.out.println("|　　　　　　　　　　　　　　　　　　　 ");
 		System.out.println("|　　　　新浪博客代码转换器　　　　　　 ");
@@ -57,6 +59,8 @@ public class Main {
 		System.out.println("|2、根据编号输入对应代码类型");
 		System.out.println("|3、程序将自动从剪贴板获取内容进行转换");
 		System.out.println("|4、转换结束之后，剪贴板的内容就是结果 ");
+		System.out.println("|　　　　　　　　　　　　　　　　　　　 ");
+		System.out.println("|注意：对于含有“<”的情况，需要在切换到源，然后再粘贴");
 		System.out.println("|　　　　　　　　　　　　　　　　　　　 ");
 		System.out.println("|1：Java；2：XML　　　　　　　　　　　　 ");
 		System.out.println("---------------------------------------------");
