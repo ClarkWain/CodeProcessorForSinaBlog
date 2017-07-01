@@ -100,9 +100,9 @@ public class CppCodeProcessor implements IProcessor {
 	 */
 	private String replaceComments(String text) {
 		return text.replace("<", "&amp;lt;")//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
-				.replace("Java_", "<b>J</b>ava_")//由于Java_com_test这一类方法名称不受支持，这里改一下
-				.replace("/*", "<b>/</b>*")
-				.replace("/**", "<b>/</b>**");
+				.replace("Java", "<b>J</b>ava")//由于Java_com_test这一类方法名称不受支持，这里改一下
+				.replace("java", "<b>j</b>ava")//所有java字都不行？
+				.replace("/*", "<b>/</b>*");
 //		.replace("<", "&#60;");//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
 	}
 }
