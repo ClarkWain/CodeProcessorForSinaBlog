@@ -2,6 +2,7 @@ package cn.bassy.tools;
 
 import java.util.Scanner;
 
+import cn.bassy.tools.processor.CppCodeProcessor;
 import cn.bassy.tools.processor.IProcessor;
 import cn.bassy.tools.processor.JavaCodeProcessor;
 import cn.bassy.tools.processor.XmlCodeProcessor;
@@ -30,6 +31,9 @@ public class Main {
 				break;
 			case 2:
 				processor = new XmlCodeProcessor();
+				break;
+			case 3:
+				processor = new CppCodeProcessor();
 				break;
 			default:
 				System.out.println(cmd + "指令暂时不被支持，请重新输入！");
@@ -62,7 +66,7 @@ public class Main {
 		System.out.println("|　　　　　　　　　　　　　　　　　　　 ");
 		System.out.println("|注意：对于含有“<”的情况，需要在切换到源，然后再粘贴");
 		System.out.println("|　　　　　　　　　　　　　　　　　　　 ");
-		System.out.println("|1：Java；2：XML　　　　　　　　　　　　 ");
+		System.out.println("|1：Java；2：XML；3、C++　　　　　　　　　　　　 ");
 		System.out.println("---------------------------------------------");
 
 	}

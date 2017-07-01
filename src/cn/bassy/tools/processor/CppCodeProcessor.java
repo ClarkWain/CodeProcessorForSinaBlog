@@ -6,7 +6,7 @@ package cn.bassy.tools.processor;
  * @author 韦天鹏
  * @create 2017年6月16日
  */
-public class JavaCodeProcessor implements IProcessor {
+public class CppCodeProcessor implements IProcessor {
 
 	boolean isFirstPreTag = true;
 
@@ -100,6 +100,8 @@ public class JavaCodeProcessor implements IProcessor {
 	 */
 	private String replaceComments(String text) {
 		return text.replace("<", "&amp;lt;")//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
+				.replace("Java_", "<b>J</b>ava_")//由于Java_com_test这一类方法名称不受支持，这里改一下
+				.replace("/*", "<b>/</b>*")
 				.replace("/**", "<b>/</b>**");
 //		.replace("<", "&#60;");//由于<符号不被支持，只能转换为unicode的形式，这就需要在html编辑中粘贴了。
 	}
